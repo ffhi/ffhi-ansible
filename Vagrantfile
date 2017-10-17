@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
     config.vm.box = "debian/stretch64"
-    config.vm.network "public_network"
+    config.vm.network :public_network, :bridge => 'br0', :dev => 'virbr1'
 
     config.vm.provision "ansible" do |ansible|
         ansible.verbose = "v"
